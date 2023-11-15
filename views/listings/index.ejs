@@ -76,8 +76,8 @@
       </div>
     </div>
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
-    <% for(let listing of alllistings){ let clickedText="none"%>
-      <%= console.log(clickedText) %>
+    <% for(let listing of alllistings){%>
+     
       <a href="/listings/<%= listing._id %>" class="listing-link">
     <div class="card col listing-card" style="width: 18rem;">
         <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height:20rem">
@@ -101,18 +101,7 @@
 <script>
 
 
-  let chooseElements = document.getElementsByClassName("choose");
-
-  for (let i = 0; i < chooseElements.length; i++) {
-    // Add a click event listener to each element
-    chooseElements[i].addEventListener("click", () => {
-      // Access the inner text of the clicked element
-      let clickedText = chooseElements[i].innerText;
-      
-      // Your code to display or use the text
-      console.log("Element clicked! Text: ", clickedText);
-    });
-  }
+  
   let taxSwitch = document.getElementById("flexSwitchCheckDefault");
 taxSwitch.addEventListener("click", () => {
   let taxInfo = document.getElementsByClassName("tax-info");
