@@ -77,11 +77,12 @@
     </div>
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
     <% for(let listing of alllistings){%>
-     
+      <div class="main">
       <a href="/listings/<%= listing._id %>" class="listing-link">
     <div class="card col listing-card" style="width: 18rem;">
-        <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height:20rem">
-        <div class="card-img-overlay">
+      <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" >
+
+        <div class="card-img-overlay" >
           <h5 class="card-title"></h5>
           <p class="card-text"></p>
           <p class="card-text"></p>
@@ -91,14 +92,40 @@
             <b><%=  listing.title %></b><br>
             &#8377;<%= listing.price.toLocaleString("en-IN") %> /night
             <i class="tax-info">&nbsp;&nbsp;+18%GST</i>
+            <b class="cat" style="display:none"><%=  listing.category %></b><br>
           </p>
         </div>
+        
       </div>
     </a>
+  </div>
       <% } %>
     </div>
 </body>
 <script>
+
+  let chooseElements = document.getElementsByClassName("choose");
+
+for (let i = 0; i < chooseElements.length; i++) {
+  // Add a click event listener to each element
+  chooseElements[i].addEventListener("click", () => {
+    // Access the inner text of the clicked element
+    let clickedText = chooseElements[i].innerText;
+    let choosecard = document.getElementsByClassName("cat");
+    let card = document.getElementsByClassName("main");
+    for (let j = 0; j < choosecard.length; j++) {
+      if (choosecard[j].innerText !== clickedText) {
+        card[j].style.display = "none";
+      } else {
+        card[j].style.display = "inline";
+      }
+    }
+  });
+}
+
+
+
+
 
 
   
