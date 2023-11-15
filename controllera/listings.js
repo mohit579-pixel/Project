@@ -2,11 +2,19 @@ require('dotenv').config();
 const Listing = require("../models/listing");
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapToken = "pk.eyJ1IjoiZGVsdGEtc3R1ZHVlbnQiLCJhIjoiY2xvMDk0MTVhMTJ3ZDJrcGR5ZDFkaHl4ciJ9.Gj2VU1wvxc7rFVt5E4KLOQ";
-console.log(mapToken);
+// console.log(mapToken);
 const geoCodingClient = mbxGeocoding({ accessToken: mapToken });
+
+module.exports.main=async(req,res)=>{
+  // const alllistings=await Listing.find({});
+  // console.log(alllistings)
+  res.render("listings/home.ejs");
+};
+
 
 module.exports.index=async(req,res)=>{
     const alllistings=await Listing.find({});
+    // console.log(alllistings)
     res.render("listings/index.ejs",{alllistings});
 };
 
@@ -33,6 +41,7 @@ module.exports.createListing=async(req,res)=>{
     let filename=req.file.filename;
 
     const newListing =new Listing(req.body.listing);
+    console.log(req.body.listing);
     newListing.owner=req.user._id;
     newListing.image={url,filename};
 

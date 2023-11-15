@@ -13,7 +13,7 @@ min-height: 100vh;
     background-color: aliceblue;
 }
 .fa-compass{
-    color: red;
+    color: darkblue;
 }
 .nav-link{
     color: #222222 !important;
@@ -49,14 +49,19 @@ min-height: 100vh;
 .listing-card{
     border: none !important;
     margin-bottom: 2rem;
-    
 }
-.card-im-top{
-    border-radius: 3rem !important;
+.card-img-top{
+    /* border-radius: 3rem !important; */
     width: 100% !important;
     object-fit: cover !important;
+    height: 19rem;
+    width: 23rem !important;
+    border-top-right-radius:1rem !important;
+    box-shadow: 10px 5px 7px grey!important;
+    
 }
 .card-body{
+
     padding: 0 !important;
 }
 .card-text p{
@@ -68,6 +73,11 @@ min-height: 100vh;
 }
 /* card Effect */
 .card-img-overlay{
+    width: 100% !important;
+    object-fit: cover !important;
+    height: 19rem;
+    width: 23rem !important;
+    border-top-right-radius:2rem !important;
     opacity: 0;
 }
 .card-img-overlay:hover{
@@ -76,7 +86,7 @@ min-height: 100vh;
 }
 /* New Page */
 .add-btn,.edit-btn{
-    background-color: red !important;
+    background-color: darkblue !important;
     border: none !important;
 }
 
@@ -96,3 +106,13 @@ min-height: 100vh;
 /* Map */
 #map { height: 400px;
 width:80vh; }
+
+
+/* home */
+/* .outside{
+    width: 100vw;
+    height: 80%;
+    
+} */
+
+

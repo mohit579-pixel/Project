@@ -10,12 +10,14 @@ const {storage}=require("../cloudConfig.js")
 const upload = multer({ storage })
 
 // Index Routings
+router.route("/home")
+.get(listingController.main);
 router.route("/")
   .get(wrapAsync(listingController.index))
   .post(isLoggedIn,upload.single('listing[image]'), validateListing, wrapAsync(listingController.createListing));
   
 
-console.log(process.env.SECRET);
+// console.log(process.env.SECRET);
 // New Route
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 
